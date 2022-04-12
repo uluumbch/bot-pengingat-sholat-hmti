@@ -20,33 +20,35 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
+[![Telegram][telegram-shield]][telegram-url]
 
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="gambar/logo.png" alt="Logo" width="80" height="80">
+    <!-- <img src="gambar/logo.png"> -->
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">Bot Pengingat Sholat HMTI</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    Bot telegram sederhana sebagai pengingat sholat
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/uluumbch/bot-pengingat-sholat-hmti"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/uluumbch/bot-pengingat-sholat-hmti/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/uluumbch/bot-pengingat-sholat-hmti/issues">Request Feature</a>
   </p>
 </p>
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
-  <summary>Table of Contents</summary>
+  <summary>Daftar isi</summary>
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
@@ -68,14 +70,25 @@
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
-</details>
+ </details>
+
+- [Tentang Projek](#tentang-projek)
+  - [Teknologi yang Digunakan](#teknologi-yang-digunakan)
+- [Memulai](#memulai)
+  - [Prasyarat](#prasyarat)
+  - [Konfigurasi](#konfigurasi)
+- [Penggunaan](#penggunaan)
+- [Berkontribusi](#berkontribusi)
+- [Lisensi](#lisensi)
+- [Kontak](#kontak)
 
 <!-- ABOUT THE PROJECT -->
 
 ## Tentang Projek
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
+<p align = "center">
+<img src="gambar/screenshot.png">
+</p>
 Sebuah bot sederhana yang dapat mengirimkan pesan secara otomatis ke grup telegram. Bot akan mengirimkan pesan(berupa gambar) berdasarkan waktu sholat pada hari itu.
 
 Kenapa menggunakan Bot?
@@ -84,23 +97,11 @@ Kenapa menggunakan Bot?
 - Tidak perlu sumber daya yang besar untuk dapat menjalankan Bot di server lokal
 - Bot tidak memiliki nomor telepon seperti akun biasa. Sehingga tidak mungkin untuk terkena spam.
 
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
-
-Here's why:
-
-- Your time should be focused on creating something amazing. A project that solves a problem and helps others
-- You shouldn't be doing the same tasks over and over like creating a README from scratch
-- You should element DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have have contributed to expanding this template!
-
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
-
 ### Teknologi yang Digunakan
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+Beberapa teknologi yang digunakan untuk membangun Bot ini diantaranya:
 
-- [Node.Js](http://nodejs.org/)
+- [Node.js](http://nodejs.org/)
   <details>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg" width=100/>
 
@@ -135,98 +136,116 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prasyarat
 
-This is an example of how to list things you need to use the software and how to install them.
+- node js
+
+  download disini
+
+  [![Node Js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/download/)
+
+  cek versi
+
+  ```sh
+  node -v
+  ```
+
+  atau
+
+  ```sh
+  node --version
+  ```
 
 - npm
+
+  instal npm
+
   ```sh
   npm install npm@latest -g
   ```
 
-### Installation
+  cek versi npm untuk memastikan sudah terinstal
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+  ```sh
+  npm -v
+  ```
+
+  atau
+
+  ```sh
+  npm --version
+  ```
+
+### Konfigurasi
+
+1. Buat bot telegram terlebih dahulu melalui [@botfather](t.me/botfather).
+2. Download repo atau clone dengan cara
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/uluumbch/bot-pengingat-sholat-hmti.git
    ```
-3. Install NPM packages
+3. Buka hasil download menggunakan kode editor
+4. Instal paket npm yang dibutuhkan. Jalankan perintah
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
+5. Buka file `index.js` dan edit pada bagian TOKEN dengan token bot kamu
    ```JS
-   const API_KEY = 'ENTER YOUR API';
+   const TOKEN = 'ENTER YOUR API'; // masukan token bot disini
+   ```
+6. Edit variabel group_id dengan id grup tujuan. Untuk mendapatkan grup id ikuti langkah berikut: cara mendapatkan grup id
+
+   ```js
+   const group_id = "masukkan id grup";
    ```
 
 <!-- USAGE EXAMPLES -->
 
-## Usage
+## Penggunaan
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Setelah kode dijalankan kita dapat mengirimkan pesan ke bot untuk dapat menerima respon. Coba buka bot dan klik start atau kirim pesan `/start`. Jika tidak ada error maka bot akan memberikan balasan kepada pengirim pesan. Untuk dapat mengetahui hasil respon bot dapat dilihat pada konsol.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<!-- ROADMAP -->
-
-## Roadmap
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
+_Untuk mengedit perintah silakan membaca [Dokumentasi Telegram](https://core.telegram.org/bots/api) atau [Dokumentasi node-telegram-bot-api](https://github.com/yagop/node-telegram-bot-api/)_
 
 <!-- CONTRIBUTING -->
 
-## Contributing
+## Berkontribusi
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Dengan berkontribusi kita dapat saling membantu untuk membuat sebuah projek yang lebih baik. Kontribusi anda akan sangat berpengaruh untuk kesempurnaan sebuah sistem. **Segala jenis kontribusi anda akan sangat berguna**
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. Fork projek ini
+2. Buat branch baru (`git checkout branchBaru`)
+3. Commit perubahan (`git commit -m 'menambahkan fitur baru yang keren'`)
+4. Push perubahan ke branch anda (`git push origin branchBaru`)
+5. Lakukan pull request
 
 <!-- LICENSE -->
 
-## License
+## Lisensi
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Projek ini didistribusikan dibawah lisensi MIT. Untuk informasi lebih lengkap silakan merujuk pada `LICENSE`.
 
 <!-- CONTACT -->
 
-## Contact
+## Kontak
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Bachrul Uluum - [@uluumbch](t.me/uluumbch) - halo.uluum@gmail.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Link Projek: [https://github.com/uluumbch/bot-pengingat-sholat-hmti](https://github.com/uluumbch/bot-pengingat-sholat-hmti)
 
 <!-- ACKNOWLEDGEMENTS -->
-
-## Acknowledgements
-
-- [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-- [Img Shields](https://shields.io)
-- [Choose an Open Source License](https://choosealicense.com)
-- [GitHub Pages](https://pages.github.com)
-- [Animate.css](https://daneden.github.io/animate.css)
-- [Loaders.css](https://connoratherton.com/loaders)
-- [Slick Carousel](https://kenwheeler.github.io/slick)
-- [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
-- [Sticky Kit](http://leafo.net/sticky-kit)
-- [JVectorMap](http://jvectormap.com)
-- [Font Awesome](https://fontawesome.com)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/uluumbch/bot-pengingat-sholat-hmti.svg?style=for-the-badge
+[contributors-url]: https://github.com/uluumbch/bot-pengingat-sholat-hmti/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/uluumbch/bot-pengingat-sholat-hmti.svg?style=for-the-badge
+[forks-url]: https://github.com/uluumbch/bot-pengingat-sholat-hmti/network/members
+[stars-shield]: https://img.shields.io/github/stars/uluumbch/bot-pengingat-sholat-hmti.svg?style=for-the-badge
+[stars-url]: https://github.com/uluumbch/bot-pengingat-sholat-hmti/stargazers
+[issues-shield]: https://img.shields.io/github/issues/uluumbch/bot-pengingat-sholat-hmti.svg?style=for-the-badge
+[issues-url]: https://github.com/uluumbch/bot-pengingat-sholat-hmti/issues
+[license-shield]: https://img.shields.io/github/license/uluumbch/bot-pengingat-sholat-hmti.svg?style=for-the-badge
+[license-url]: https://github.com/uluumbch/bot-pengingat-sholat-hmti/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
+[linkedin-url]: https://linkedin.com/in/bachrul-uluum
+[telegram-shield]: https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white
+[telegram-url]: t.me/uluumbch
