@@ -5,8 +5,6 @@
 *** Thanks again! Now go create something AMAZING! :D
 -->
 
-
-
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -15,14 +13,13 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
+
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
-
 
 <!-- PROJECT LOGO -->
 <br />
@@ -46,8 +43,6 @@
     <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
   </p>
 </p>
-
-
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -75,43 +70,74 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
-## About The Project
+
+## Tentang Projek
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
+
+Sebuah bot sederhana yang dapat mengirimkan pesan secara otomatis ke grup telegram. Bot akan mengirimkan pesan(berupa gambar) berdasarkan waktu sholat pada hari itu.
+
+Kenapa menggunakan Bot?
+
+- Bot dapat mengirimkan pesan secara otomatis sesuai dengan waktu yang kita tentukan.
+- Tidak perlu sumber daya yang besar untuk dapat menjalankan Bot di server lokal
+- Bot tidak memiliki nomor telepon seperti akun biasa. Sehingga tidak mungkin untuk terkena spam.
 
 There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
 
 Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
+
+- Your time should be focused on creating something amazing. A project that solves a problem and helps others
+- You shouldn't be doing the same tasks over and over like creating a README from scratch
+- You should element DRY principles to the rest of your life :smile:
 
 Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have have contributed to expanding this template!
 
 A list of commonly used resources that I find helpful are listed in the acknowledgements.
 
-### Built With
+### Teknologi yang Digunakan
 
 This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
 
+- [Node.Js](http://nodejs.org/)
+  <details>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg" width=100/>
 
+  Node.js adalah runtime environment untuk JavaScript yang bersifat open-source dan cross-platform. Dengan Node.js kita dapat menjalankan kode JavaScript di mana pun, tidak hanya terbatas pada lingkungan browser.
+
+  Node.js menjalankan V8 JavaScript engine (yang juga merupakan inti dari Google Chrome) di luar browser. Ini memungkinkan Node.js memiliki performa yang tinggi.
+  </details>
+
+- [Axios](https://www.npmjs.com/package/axios)
+  <details>
+  Axios adalah sebuah library pada Node js yang dapat digunakan untuk melakukan fetch pada API. Axios lebih mudah digunakan jika dibandingkan dengan library lain yang juga digunakan untuk fetch API, selain itu axios juga gratis (open source)
+  </details>
+- [node-telegram-bot-api](https://github.com/yagop/node-telegram-bot-api/)
+  <details>
+  package pada Node.js yang digunakan untuk berkomunikasi dengan <a href="https://github.com/yagop/node-telegram-bot-api/">API Telegram Bot</a>. Package ini membantu kita untuk mengirim dan menerima API telegram.
+  </details>
+- [node-cron](https://github.com/node-cron/node-cron)
+  <details>
+  Paket ini memungkinkan kita untuk menjadwalkan perintah(menjalankan fungsi) dan mengotomatisasi perintah di node.js menggunakan sintaks crontab.
+
+  Kita menggunakan <a href="https://en.wikipedia.org/wiki/Cron">Cron</a> agar dapat menjalankan perintah secara otomatis atau melakukan perintah seperti menjalankan sebuah fungsi sesuai dengan jadwal yang kita inginkan.
+  </details>
 
 <!-- GETTING STARTED -->
-## Getting Started
+
+## Memulai
+
+Untuk dapat menjalankan projek ini di komputer lokal kita atau melakukan pengembangan lebih jauh, ikuti langkah-langkah dibawah ini:
 
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
+### Prasyarat
 
 This is an example of how to list things you need to use the software and how to install them.
-* npm
+
+- npm
   ```sh
   npm install npm@latest -g
   ```
@@ -132,25 +158,22 @@ This is an example of how to list things you need to use the software and how to
    const API_KEY = 'ENTER YOUR API';
    ```
 
-
-
 <!-- USAGE EXAMPLES -->
+
 ## Usage
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
-
-
 <!-- ROADMAP -->
+
 ## Roadmap
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
 
-
-
 <!-- CONTRIBUTING -->
+
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -161,44 +184,39 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-
-
 <!-- LICENSE -->
+
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-
-
 <!-- CONTACT -->
+
 ## Contact
 
 Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
 
 Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
-
-
 <!-- ACKNOWLEDGEMENTS -->
+
 ## Acknowledgements
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Img Shields](https://shields.io)
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Pages](https://pages.github.com)
-* [Animate.css](https://daneden.github.io/animate.css)
-* [Loaders.css](https://connoratherton.com/loaders)
-* [Slick Carousel](https://kenwheeler.github.io/slick)
-* [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
-* [Sticky Kit](http://leafo.net/sticky-kit)
-* [JVectorMap](http://jvectormap.com)
-* [Font Awesome](https://fontawesome.com)
 
-
-
-
+- [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
+- [Img Shields](https://shields.io)
+- [Choose an Open Source License](https://choosealicense.com)
+- [GitHub Pages](https://pages.github.com)
+- [Animate.css](https://daneden.github.io/animate.css)
+- [Loaders.css](https://connoratherton.com/loaders)
+- [Slick Carousel](https://kenwheeler.github.io/slick)
+- [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
+- [Sticky Kit](http://leafo.net/sticky-kit)
+- [JVectorMap](http://jvectormap.com)
+- [Font Awesome](https://fontawesome.com)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
 [contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
