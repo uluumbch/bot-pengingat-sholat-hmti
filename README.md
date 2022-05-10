@@ -49,28 +49,6 @@
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary>Daftar isi</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
-  </ol>
- </details>
 
 - [Tentang Projek](#tentang-projek)
   - [Teknologi yang Digunakan](#teknologi-yang-digunakan)
@@ -78,9 +56,14 @@
   - [Prasyarat](#prasyarat)
   - [Konfigurasi](#konfigurasi)
 - [Penggunaan](#penggunaan)
+- [Masalah yang sering muncul](#masalah-yang-sering-muncul)
+  - [cara menemukan grup id](#cara-menemukan-grup-id)
+  - [Mengatasi Bot tidak mengirim pesan pada waktu tertentu](#mengatasi-bot-tidak-mengirim-pesan-pada-waktu-tertentu)
+  - [Cara menambahkan gambar](#cara-menambahkan-gambar)
 - [Berkontribusi](#berkontribusi)
 - [Lisensi](#lisensi)
 - [Kontak](#kontak)
+  </details>
 
 <!-- ABOUT THE PROJECT -->
 
@@ -176,7 +159,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Konfigurasi
 
-1. Buat bot telegram terlebih dahulu melalui [@botfather](t.me/botfather).
+1. Buat bot telegram terlebih dahulu melalui [@botfather](t.me/botfather). Lalu dapatkan token bot dan tambahkan bot ke dalam grup.
 2. Download repo atau clone dengan cara
    ```sh
    git clone https://github.com/uluumbch/bot-pengingat-sholat-hmti.git
@@ -186,25 +169,104 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    npm install
    ```
-5. Buka file `index.js` dan edit pada bagian TOKEN dengan token bot kamu
-   ```JS
-   const TOKEN = 'ENTER YOUR API'; // masukan token bot disini
-   ```
-6. Edit variabel group_id dengan id grup tujuan. Untuk mendapatkan grup id ikuti langkah berikut: cara mendapatkan grup id
+5. Buka file `index.js` dan edit pada bagian berikut
 
+   ```JS
+   const token = "12345:abcdefghijklmnxasas"; // tulis bot token disini
+   const id_grup = "-123456789"; // id grup anda disini
+   const zona_waktu = "Asia/Makassar"; // konfigurasi zona waktu
+   ```
+
+   untuk zona waktu dapat dilihat pada [list zona waktu](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+
+   untuk mengetahui grup id anda, baca bagian [cara menemukan id grup](#cara-menemukan-grup-id)
+
+6. Konfigurasi waktu sholat yang ingin ditampilkan. Ubah menjadi `false` jika tidak ingin tampil di waktu sholat tertentu
    ```js
-   const group_id = "masukkan id grup";
+   const waktuSholat = {
+     imsak: false,
+     subuh: true,
+     dzuhur: true,
+     ashar: true,
+     maghrib: true,
+     buka_puasa: false,
+     isya: true,
+   };
    ```
 
 <!-- USAGE EXAMPLES -->
 
 ## Penggunaan
 
+jalankan perintah
+
+```
+node index
+```
+
 Setelah kode dijalankan kita dapat mengirimkan pesan ke bot untuk dapat menerima respon. Coba buka bot dan klik start atau kirim pesan `/start`. Jika tidak ada error maka bot akan memberikan balasan kepada pengirim pesan. Untuk dapat mengetahui hasil respon bot dapat dilihat pada konsol.
 
 _Untuk mengedit perintah silakan membaca [Dokumentasi Telegram](https://core.telegram.org/bots/api) atau [Dokumentasi node-telegram-bot-api](https://github.com/yagop/node-telegram-bot-api/)_
 
 <!-- CONTRIBUTING -->
+
+## Masalah yang sering muncul
+
+### cara menemukan grup id
+
+1. Tambahkan bot anda ke grup
+2. Buka terminal dan jalankan server bot dengan perintah `node index`
+3. Kirim pesan di grup
+4. Akan ada response pada console, bagian id grup dapat dilihat di `chat.id`
+   ```js
+   {
+   message_id: 1024,
+   from: {
+    id: 64545345,
+    is_bot: false,
+    first_name: 'nama',
+    last_name: 'akun',
+    username: 'usernameakun',
+    language_code: 'id'
+   },
+   chat: {
+    id: -591569107, // kode grup id anda disini
+    title: 'Nama grup',
+    type: 'group',
+    all_members_are_administrators: true
+   },
+   date: 1652200084,
+   text: 'test kirim pesan pada grup'
+   }
+   ```
+
+### Mengatasi Bot tidak mengirim pesan pada waktu tertentu
+
+Jika bot tidak berjalan pada waktu tertentu, buka terminal pada server dan lihat apakah ada error.
+untuk mengirim pesan secara manual melalui bot ikuti perintah berikut:
+
+1. Edit file `manual.js` sesuaikan isi dengan pesan yang diinginkan
+2. Ubah menjadi `true` pada waktu sholat yang ingin dikirimkan ucapan.
+3. Jika ingin menggunakan caption, _uncomment_ baris caption. contoh:
+   ```js
+   bot.sendPhoto(
+     id_grup,
+     `gambar/subuh/${subuh[Math.floor(Math.random() * subuh.length)]}`
+     // , {caption: "Selamat menunaikan sholat subuh",}
+   );
+   ```
+   ubah menjadi
+   ```js
+   bot.sendPhoto(
+     id_grup,
+     `gambar/subuh/${subuh[Math.floor(Math.random() * subuh.length)]}`,
+     { caption: "Selamat menunaikan sholat subuh" }
+   );
+   ```
+
+### Cara menambahkan gambar
+
+Untuk menambahkan gambar baru, kita hanya perlu menambahkan gambar ke folder yang telah ada. Misalkan ingin menambahkan gambar pada waktu maghrib maka tambahkan gambar ke folder `/gambar/maghrib` begitu juga dengan gambar lain, tempatkan sesuai pada folder masing-masing.
 
 ## Berkontribusi
 
@@ -249,3 +311,11 @@ Link Projek: [https://github.com/uluumbch/bot-pengingat-sholat-hmti](https://git
 [linkedin-url]: https://linkedin.com/in/bachrul-uluum
 [telegram-shield]: https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white
 [telegram-url]: t.me/uluumbch
+
+```
+
+```
+
+```
+
+```
