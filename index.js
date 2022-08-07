@@ -27,6 +27,8 @@ bot.onText(/\/perintah/, (msg) => {
     {
       reply_markup: {
         keyboard: [["Jadwal Sholat"], ["Quotes Islami"]],
+        resize_keyboard: true,
+        one_time_keyboard: true
       },
     }
   );
