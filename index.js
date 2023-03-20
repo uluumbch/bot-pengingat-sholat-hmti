@@ -181,11 +181,10 @@ cron.schedule(
           menit == waktu.imsak.menit
         ) {
           bot.sendPhoto(id_grup, "gambar/IMSAK.png"),
-          {
-            caption:
-              "Waktunya imsak untuk wilayah Banjarmasin dan sekitarnya",
-          };
-          db.addData(id_grup)
+            {
+              caption:
+                "Waktunya imsak untuk wilayah Banjarmasin dan sekitarnya",
+            }.then(resp => db.addData(resp.message_id))
         }
 
         // perintah untuk subuh
@@ -198,8 +197,7 @@ cron.schedule(
             id_grup,
             `gambar/subuh/${subuh[Math.floor(Math.random() * subuh.length)]}`
             // , {caption: "Selamat menunaikan sholat subuh",}
-          );
-          db.addData(id_grup)
+          ).then(resp => db.addData(resp.message_id))
         }
         // endif
 
@@ -213,8 +211,7 @@ cron.schedule(
             id_grup,
             `gambar/dzuhur/${dzuhur[Math.floor(Math.random() * dzuhur.length)]}`
             // , {caption: "Selamat menunaikan sholat dzuhur",}
-          );
-          db.addData(id_grup)
+          ).then(resp => db.addData(resp.message_id))
         }
         // endif
 
@@ -228,8 +225,7 @@ cron.schedule(
             id_grup,
             `gambar/ashar/${ashar[Math.floor(Math.random() * ashar.length)]}`
             // , { caption: "Selamat menunaikan sholat ashar",}
-          );
-          db.addData(id_grup)
+          ).then(resp => db.addData(resp.message_id))
         }
         // endif
 
@@ -244,14 +240,13 @@ cron.schedule(
             `gambar/maghrib/${maghrib[Math.floor(Math.random() * maghrib.length)]
             }`
             // , {caption: "Selamat menunaikan sholat maghrib",}
-          );
-          db.addData(id_grup)
+          ).then(resp => db.addData(resp.message_id))
+
           if (waktuSholat.buka_puasa) {
             bot.sendPhoto(id_grup, "gambar/BUKA.png", {
               caption:
                 "Selamat berbuka puasa untuk wilayah Banjarmasin dan sekitarnya",
-            });
-            db.addData(id_grup)
+            }).then(resp => db.addData(resp.message_id))
           }
         }
         // endif
@@ -266,8 +261,7 @@ cron.schedule(
             id_grup,
             `gambar/isya/${isya[Math.floor(Math.random() * isya.length)]}`
             // , {caption: "Selamat menunaikan sholat isya",}
-          );
-          db.addData(id_grup)
+          ).then(resp => db.addData(resp.message_id))
         }
         // endif
       });
