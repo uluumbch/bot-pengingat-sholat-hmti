@@ -2,6 +2,8 @@ const axios = require("axios");
 const cron = require("node-cron");
 const Telegram = require("node-telegram-bot-api");
 
+const db = require("./db");
+
 const token = "12345:abcdefghijklmnxasas"; // tulis bot token disini
 const id_grup = "-123456789"; // id grup anda disini
 const zona_waktu = "Asia/Makassar"; // konfigurasi zona waktu dapat dilihat di https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
@@ -179,10 +181,11 @@ cron.schedule(
           menit == waktu.imsak.menit
         ) {
           bot.sendPhoto(id_grup, "gambar/IMSAK.png"),
-            {
-              caption:
-                "Waktunya imsak untuk wilayah Banjarmasin dan sekitarnya",
-            };
+          {
+            caption:
+              "Waktunya imsak untuk wilayah Banjarmasin dan sekitarnya",
+          };
+          db.addData(id_grup)
         }
 
         // perintah untuk subuh
@@ -196,6 +199,7 @@ cron.schedule(
             `gambar/subuh/${subuh[Math.floor(Math.random() * subuh.length)]}`
             // , {caption: "Selamat menunaikan sholat subuh",}
           );
+          db.addData(id_grup)
         }
         // endif
 
@@ -210,6 +214,7 @@ cron.schedule(
             `gambar/dzuhur/${dzuhur[Math.floor(Math.random() * dzuhur.length)]}`
             // , {caption: "Selamat menunaikan sholat dzuhur",}
           );
+          db.addData(id_grup)
         }
         // endif
 
@@ -224,6 +229,7 @@ cron.schedule(
             `gambar/ashar/${ashar[Math.floor(Math.random() * ashar.length)]}`
             // , { caption: "Selamat menunaikan sholat ashar",}
           );
+          db.addData(id_grup)
         }
         // endif
 
@@ -235,16 +241,17 @@ cron.schedule(
         ) {
           bot.sendPhoto(
             id_grup,
-            `gambar/maghrib/${
-              maghrib[Math.floor(Math.random() * maghrib.length)]
+            `gambar/maghrib/${maghrib[Math.floor(Math.random() * maghrib.length)]
             }`
             // , {caption: "Selamat menunaikan sholat maghrib",}
           );
+          db.addData(id_grup)
           if (waktuSholat.buka_puasa) {
             bot.sendPhoto(id_grup, "gambar/BUKA.png", {
               caption:
                 "Selamat berbuka puasa untuk wilayah Banjarmasin dan sekitarnya",
             });
+            db.addData(id_grup)
           }
         }
         // endif
@@ -260,6 +267,7 @@ cron.schedule(
             `gambar/isya/${isya[Math.floor(Math.random() * isya.length)]}`
             // , {caption: "Selamat menunaikan sholat isya",}
           );
+          db.addData(id_grup)
         }
         // endif
       });
@@ -269,3 +277,16 @@ cron.schedule(
     timezone: zona_waktu,
   }
 );
+
+// perintah untuk dijalankan pada jam 23.00 WITA
+cron.schedule("0 23 * * *", () => {
+  let msg_id = db.readData()
+  // bot.sendMessage("646854648",`daftar chat id: ${msg_id}`)
+  for (const i in msg_id) {
+    bot.deleteMessage(bot_id, msg_id[i]);
+  }
+  db.clearData()
+}, {
+  scheduled: true,
+  timezone: "Asia/Makassar",
+})
