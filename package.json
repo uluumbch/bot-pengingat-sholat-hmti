@@ -1,0 +1,30 @@
+{
+  "name": "bot-pengingat-sholat-hmti",
+  "version": "1.1.0",
+  "description": "Bot untuk pengingat sholat pada grup telegram Mahasiswa PSTI FT ULM",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uluumbch/bot-pengingat-sholat-hmti.git"
+  },
+  "keywords": [
+    "bot",
+    "telegram",
+    "bot"
+  ],
+  "author": "Bachrul Uluum",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uluumbch/bot-pengingat-sholat-hmti/issues"
+  },
+  "homepage": "https://github.com/uluumbch/bot-pengingat-sholat-hmti#readme",
+  "dependencies": {
+    "axios": "^1.3.4",
+    "node-telegram-bot-api": "^0.61.0",
+    "node-cron" : "^3.0.2",
+    "luxon": "^3.3.0"
+  }
+}
