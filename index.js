@@ -4,8 +4,8 @@ const Telegram = require("node-telegram-bot-api");
 
 const db = require("./db");
 
-const token = "12345:abcdefghijklmnxasas"; // tulis bot token disini
-const id_grup = "-123456789"; // id grup anda disini
+const token = "5205873843:AAH5idyGzQstlnvHxxfG06oO9Ww9wT1GlW8"; // tulis bot token disini
+const id_grup = "-732056126"; // id grup anda disini
 const zona_waktu = "Asia/Makassar"; // konfigurasi zona waktu dapat dilihat di https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 const bot = new Telegram(token, { polling: true });
@@ -21,6 +21,8 @@ const waktuSholat = {
   buka_puasa: true,
   isya: true,
 };
+
+
 
 bot.onText(/\/perintah/, (msg) => {
   bot.sendMessage(
@@ -104,7 +106,7 @@ isya      				: ${resp.data.data.jadwal.isya}\`\`\`
 
   // new if
   if (msg.text == "jam") {
-    let dt = luxon.DateTime.now().setZone("Asia/Makassar");
+    let dt = luxon.DateTime.now().setZone(zona_waktu);
 
     let year = dt.year;
     let month = dt.month;
@@ -124,7 +126,7 @@ isya      				: ${resp.data.data.jadwal.isya}\`\`\`
 cron.schedule(
   "* * * * *",
   () => {
-    let botDate = luxon.DateTime.now().setZone("Asia/Makassar");
+    let botDate = luxon.DateTime.now().setZone(zona_waktu);
     let year = botDate.year;
     let month = botDate.month;
     let day = botDate.day;
@@ -277,10 +279,10 @@ cron.schedule("0 23 * * *", () => {
   let msg_id = db.readData()
   // bot.sendMessage("646854648",`daftar chat id: ${msg_id}`)
   for (const i in msg_id) {
-    bot.deleteMessage(bot_id, msg_id[i]);
+    bot.deleteMessage(id_grup, msg_id[i]);
   }
   db.clearData()
 }, {
   scheduled: true,
-  timezone: "Asia/Makassar",
+  timezone: zona_waktu,
 })
