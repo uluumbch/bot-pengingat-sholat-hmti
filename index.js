@@ -4,8 +4,8 @@ const Telegram = require("node-telegram-bot-api");
 
 const db = require("./db");
 
-const token = "5205873843:AAH5idyGzQstlnvHxxfG06oO9Ww9wT1GlW8"; // tulis bot token disini
-const id_grup = "-732056126"; // id grup anda disini
+const token = "123456789:abcdefghijk"; // tulis bot token disini
+const id_grup = "-123456789"; // id grup anda disini
 const zona_waktu = "Asia/Makassar"; // konfigurasi zona waktu dapat dilihat di https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 const bot = new Telegram(token, { polling: true });
