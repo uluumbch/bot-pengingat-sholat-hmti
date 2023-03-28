@@ -1,12 +1,13 @@
+require("dotenv").config();
 const axios = require("axios");
 const cron = require("node-cron");
 const Telegram = require("node-telegram-bot-api");
 
 const db = require("./db");
 
-const token = "123456789:abcdefghijk"; // tulis bot token disini
-const id_grup = "-123456789"; // id grup anda disini
-const zona_waktu = "Asia/Makassar"; // konfigurasi zona waktu dapat dilihat di https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+const token = process.env.TELEGRAM_TOKEN; // token bot anda disini
+const id_grup = process.env.ID_GRUP; // id grup telegram anda disini
+const zona_waktu = process.env.ZONA_WAKTU; // zona waktu anda disini
 
 const bot = new Telegram(token, { polling: true });
 const luxon = require("luxon");
@@ -286,3 +287,6 @@ cron.schedule("0 23 * * *", () => {
   scheduled: true,
   timezone: zona_waktu,
 })
+
+// test kirim pesan
+bot.sendMessage(id_grup, "test");
