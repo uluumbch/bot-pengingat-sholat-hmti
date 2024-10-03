@@ -1,3 +1,7 @@
+# 03 Oktober 2024
+
+- perbaikan url API menjadi versi 2 [Api MyQuran](https://api.myquran.com/)
+
 # 20 Maret 2023
 
 Pembaruan Bot

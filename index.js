@@ -8,6 +8,9 @@ const db = require("./db");
 const token = process.env.TELEGRAM_TOKEN; // token bot anda disini
 const id_grup = process.env.ID_GRUP; // id grup telegram anda disini
 const zona_waktu = process.env.ZONA_WAKTU; // zona waktu anda disini
+const BASE_URL = 'https://api.myquran.com/v1/sholat/jadwal'
+const kota = '2113'
+
 
 const bot = new Telegram(token, { polling: true });
 const luxon = require("luxon");
@@ -77,7 +80,7 @@ bot.on("message", (msg) => {
     let day = dt.day;
     axios
       .get(
-        `https://api.myquran.com/v1/sholat/jadwal/2113/${year}/${month}/${day}`
+        `${BASE_URL}/${kota}/${year}/${month}/${day}`
       )
       .then((resp) => {
         console.log(resp.data.data.jadwal);
@@ -148,7 +151,7 @@ cron.schedule(
     // get data dari API
     axios
       .get(
-        `https://api.myquran.com/v1/sholat/jadwal/2113/${year}/${month}/${day}`
+        `${BASE_URL}/${kota}/${year}/${month}/${day}`
       )
       .then((resp) => {
         let waktu = {
